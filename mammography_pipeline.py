@@ -266,7 +266,12 @@ def normalize_schema(frame: pd.DataFrame, cfg: Config, require_targets: bool = F
         raise ContractError("Ambiguous same-person/same-time invitations; no real sequence documented.")
     if {"prior_screen_count_5y", "no_screen_observed_5y"}.issubset(df):
         known = df["prior_screen_count_5y"].notna() & df["no_screen_observed_5y"].notna()
-        if (known & df["prior_screen_count_5y"].eq(0).ne(df["no_screen_observed_5y"].eq(1))).any():
+        zero, never = df["prior_screen_count_5y"].eq(0), df["no_screen_observed_5y"].eq(1)
+        # A zero 5-year count with a recorded earlier screening is consistent when that
+        # screening lies at/beyond the 60-month count window (real extract: months 60-71).
+        outside_window = (df["months_since_last_screen"].ge(60) if "months_since_last_screen" in df
+                          else pd.Series(False, index=df.index))
+        if (known & ((~zero & never) | (zero & ~never & ~outside_window))).any():
             raise ContractError("Contradictory five-year screening count and no-screen-observed flag.")
     if {"no_screen_observed_5y", "months_since_last_screen"}.issubset(df):
         if (df["no_screen_observed_5y"].eq(1) & df["months_since_last_screen"].notna()).any():

@@ -67,6 +67,13 @@ def test_schema_failures(synthetic, cfg, mutate, match):
         m.normalize_schema(mutate(synthetic.iloc[:2].copy()), cfg)
 
 
+def test_zero_count_with_screen_outside_window_is_consistent(synthetic, cfg):
+    base = synthetic.iloc[:2].copy().assign(prior_screen_count_5y=0., no_screen_observed_5y=0.)
+    m.normalize_schema(base.assign(months_since_last_screen=60.), cfg)
+    with pytest.raises(m.ContractError, match="Contradictory five-year"):
+        m.normalize_schema(base.assign(months_since_last_screen=30.), cfg)
+
+
 def test_duplicate_indices_reset(synthetic, cfg):
     small = synthetic.iloc[:2].copy()
     small.index = [8, 8]
