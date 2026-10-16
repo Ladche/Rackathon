@@ -1,4 +1,6 @@
 catboost_info
-Rackathon_Datove_rozhrani.docx
-Rackathon.pdf
-rackathon2026_team76.pdf
+./Rackathon_Datove_rozhrani.docx
+./Rackathon.pdf
+./rackathon2026_team76.pdf
+data
+!data/.gitignore
