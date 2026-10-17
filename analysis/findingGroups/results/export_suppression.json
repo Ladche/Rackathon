@@ -1,0 +1,100 @@
+{
+  "cohort_summary.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 1,
+    "published_rows": 1,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  },
+  "feature_associations.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 120,
+    "published_rows": 120,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  },
+  "candidate_profiles.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 20,
+    "published_rows": 20,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  },
+  "screening_care_profiles.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 20,
+    "published_rows": 15,
+    "suppressed_rows": 5,
+    "suppressed_support": 29
+  },
+  "invitation_history_profiles.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 6,
+    "published_rows": 6,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  },
+  "groups.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 20,
+    "published_rows": 20,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  },
+  "group_characteristics.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 20,
+    "published_rows": 20,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  },
+  "age_standardization.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 20,
+    "published_rows": 20,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  },
+  "group_context.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 1788,
+    "published_rows": 1305,
+    "suppressed_rows": 483,
+    "suppressed_support": 5195
+  },
+  "annual_groups.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 71,
+    "published_rows": 70,
+    "suppressed_rows": 1,
+    "suppressed_support": 8
+  },
+  "threshold_sensitivity.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 180,
+    "published_rows": 180,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  },
+  "cohort_sensitivity.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 29,
+    "published_rows": 29,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  },
+  "trial_power_scenarios.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 76,
+    "published_rows": 76,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  },
+  "all_invitation_groups.csv": {
+    "minimum_row_support": 20,
+    "input_rows": 20,
+    "published_rows": 20,
+    "suppressed_rows": 0,
+    "suppressed_support": 0
+  }
+}

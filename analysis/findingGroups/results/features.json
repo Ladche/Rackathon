@@ -1,0 +1,13 @@
+{
+  "main_cohort": "last calendar year, latest invitation per person WITHIN that year; no future-year selection",
+  "index_year": 2024,
+  "people": 256466,
+  "profile_cells": 20,
+  "outcomes_not_used_for_current_assignment": true,
+  "history_lag_days": 30,
+  "history_lag_status": "conservative assumption, sensitivity 0/90; not verified source delay",
+  "prior_gaps_le_365": 556719,
+  "prior_gaps_le_395": 823353,
+  "first_observed_but_source_repeat_rows": 279300,
+  "elapsed_seconds": 29.42
+}

@@ -1,0 +1,16 @@
+feature,availability,definition
+care_profile,T0,GP/GYN prevention >0; otherwise dental/other >0; otherwise all four zero and contacts <=2 or >2; missing is separate.
+history_profile,before T0,"Only prior invitations whose 365d+30d window ended strictly before T0; any early response, any delayed response, >=2 zero windows, one zero window, or none."
+screen_recency,T0,No observed lookback screening / <24 / 24-35 / 36-59 / >=60 months; not a diagnosis or clinical eligibility rule.
+invitation_status,T0,Source first flag kept distinct from first row observed in extract.
+registration_profile,T0,GP/GYN valid registration combinations; not actual doctor availability.
+prevention_domains,T0,"Number of domains with observed prevention, not sum of incompatible window counts."
+gp_registration_gap,T0,Registered GP and no recorded GP prevention in 24m.
+gyn_registration_gap,T0,Registered gynecology and no recorded GYN prevention in 24m.
+observed_prior,before T0,Count of earlier rows in this extract only; left-truncated.
+prior_gap_days,before T0,"Exact dispatch-date gap, not source months counter."
+contact_band,T0,0 / 1-2 / 3-10 / 11-30 / 31+ provider-day combinations in 12m.
+prior_known_0/30/90,before T0,"Known prior 365-day labels, after full window plus lag. No current/future labels."
+prior_yes_0/30/90,before T0,Sum of recorded prior positive 365-day flags; overlapping windows not independent events.
+prior_early_0/30/90,before T0,Prior 90-day flags counted only after that invitation's 365-day window matures.
+prior_late_0/30/90,before T0,Prior 365d=1 and 90d=0; missing 90d is not classified as late.
