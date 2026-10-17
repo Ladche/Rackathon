@@ -1,0 +1,26 @@
+name,role,missing_n,missing_fraction,distinct,units,definition,inclusion
+invitation_id,identifier,0,0.0,1344556,,identifier,identifier
+person_id,identifier,0,0.0,508527,,identifier,identifier
+invitation_date,date,0,0.0,60,,date,date
+age_band,T0_snapshot,0,0.0,7,category,Documented five-year age band; no exact age.,T0_snapshot
+territory,T0_snapshot,0,0.0,75,category,"VZP territorial office, not an administrative district.",T0_snapshot
+prior_invitation_count,T0_snapshot,0,0.0,11,count,Source count: inclusion of current invitation and coverage unresolved.,audit_only_ambiguous
+months_last_invitation,T0_snapshot,229227,0.1704852754366497,59,months,Source invitation recency; time reference not explicitly specified.,audit_only_ambiguous
+invitation_sequence,T0_snapshot,0,0.0,11,ordinal,Source sequence: relationship to source count unresolved.,audit_only_ambiguous
+healthcare_contact_12m_cnt,T0_snapshot,0,0.0,356,provider/day count/12 months,Sum of unique provider identifiers per day; not distinct visits.,T0_snapshot
+first_invitation,T0_snapshot,0,0.0,2,binary,Source first-invitation flag; distinct from first observed input row.,T0_snapshot
+insurance_duration_years,T0_snapshot,0,0.0,28,whole years,Insurance duration at T0.,T0_snapshot
+gp_registered,T0_snapshot,0,0.0,2,binary,Valid GP registration at T0; specialties 001/002.,T0_snapshot
+gp_reg_duration_band,T0_snapshot,19370,0.014406242655568084,3,years band,"Current GP registration: <2, 2-5, >5 years.",T0_snapshot
+gyn_registered,T0_snapshot,0,0.0,2,binary,Valid gynecology registration at T0; 603/604.,T0_snapshot
+gyn_reg_duration_band,T0_snapshot,288783,0.2147794513579204,3,years band,Current gynecology registration duration band.,T0_snapshot
+prior_screen_count_5y,T0_snapshot,0,0.0,15,count/60 months,"Prior screening codes 89178,89223,89225,89314,89510,89814.",T0_snapshot
+months_since_last_screen,T0_snapshot,1100286,0.8183266446321313,57,months,Recency in documented 60-month lookback; missing when none observed.,T0_snapshot
+no_screen_observed_5y,T0_snapshot,0,0.0,2,binary,Source NEVER flag restricted to documented 60-month observation.,T0_snapshot
+gp_prevention_24m_cnt,T0_snapshot,0,0.0,9,count/24 months,"GP prevention codes 01021,01022 before T0.",T0_snapshot
+gyn_prevention_24m_cnt,T0_snapshot,0,0.0,10,count/24 months,"Gynecology prevention codes 63050,63021 before T0.",T0_snapshot
+other_screening_36m_cnt,T0_snapshot,0,0.0,26,count/36 months,"Other screening, documented 36-month window and dictionary procedure list.",T0_snapshot
+dental_prevention_24m_cnt,T0_snapshot,0,0.0,10,count/24 months,"Dental prevention codes 00946,00901 before T0.",T0_snapshot
+screening_90d,outcome,0,0.0,2,,outcome,outcome
+screening_180d,outcome,0,0.0,2,,outcome,outcome
+screening_365d,outcome,0,0.0,2,,outcome,outcome

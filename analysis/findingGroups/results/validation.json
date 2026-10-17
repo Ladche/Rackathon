@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "full_data_history_checks": 4033668,
+  "main_people": 256466,
+  "groups": 20,
+  "all_source_invitations_assigned": 1344556,
+  "all_source_people_covered": 508527,
+  "persisted_assignment_matches": true,
+  "aggregate_counts_and_rates_match": true,
+  "identifier_columns_in_public_csv": false,
+  "group_cards_match": true,
+  "code_hash_matches": true,
+  "models_fitted": 0
+}

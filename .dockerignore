@@ -1,0 +1,21 @@
+.git/
+.venv/
+__pycache__/
+**/__pycache__/
+.pytest_cache/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+artifacts/
+*.joblib
+*.npz
+*.npy
+*.parquet
+predictions*.csv
+# Never bake patient-level data into the image.
+data/*.csv
+data/*.csv.*
+data.csv
+Rakhaton2026.csv
+task/

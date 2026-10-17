@@ -1,0 +1,27 @@
+{
+  "status": "validated",
+  "data_filename": "Rakhaton2026 (1).csv",
+  "data_sha256": "a75c5aa9f56d1d1526bf5ded005828c3c7318beee5ec89f477a7e24cda02033a",
+  "bytes": 182763436,
+  "invitations": 1344556,
+  "people": 508527,
+  "first_invitation_date": "2020-01-14",
+  "last_invitation_date": "2024-12-06",
+  "unknown_excluded_columns": [],
+  "source_count_sequence_disagreements": 161629,
+  "zero_5y_count_but_older_screen": 3354,
+  "source_first_with_counter_above_one": 58,
+  "outcome_cutoff": null,
+  "rate_status": "recorded_flags_only_followup_unverified",
+  "snapshot_recording_latency": "unknown; T0 snapshot interpretation assumed",
+  "utc_completed": "2026-10-17T09:19:43.964332+00:00",
+  "elapsed_seconds": 30.26,
+  "code_sha256": "cd5820bc3d00b12899925e5c26a6fc47bfcc396738f192784d1d7565c07dd957",
+  "versions": {
+    "numpy": "2.2.5",
+    "pandas": "2.3.0",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.8.0",
+    "pytest": "9.1.1"
+  }
+}

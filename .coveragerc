@@ -1,0 +1,8 @@
+[run]
+branch = True
+source = mammography_pipeline
+patch = subprocess
+parallel = True
+
+[report]
+show_missing = True
