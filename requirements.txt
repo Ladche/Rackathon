@@ -3,3 +3,8 @@ numpy
 pandas
 seaborn
 scikit-learn
+scipy
+shap
+xgboost
+catboost
+ipython
