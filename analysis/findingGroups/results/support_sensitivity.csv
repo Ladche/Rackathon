@@ -1,0 +1,5 @@
+minimum_support,groups,groups_below_support,people_below_support
+250,21,0,0
+500,20,0,0
+1000,20,1,846
+2000,17,2,2295

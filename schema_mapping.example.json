@@ -1,0 +1,8 @@
+{
+  "SCREENING_3M_FLAG": "screening_90d",
+  "SCREENING_6M_FLAG": "screening_180d",
+  "SCREENING_12M_FLAG": "screening_365d",
+  "VZP_TERRITORIAL_AREA": "territory",
+  "NEVER_SCREENED_BEFORE_FLAG": "no_screen_observed_5y",
+  "GYN_REGISTERED_FLAG": "gyn_registered"
+}

@@ -1,0 +1,147 @@
+REPAIR SUMMARY - větev ai-slop, Rakathon: nenávštěvnost mamografického screeningu
+================================================================================
+Datum: 2026-10-16
+Zadání: task/fix_prompt1.txt (ověřit funkčnost a spustitelnost, případně opravit,
+věrně zadání a návrhu, a rozjet modely v Dockeru).
+
+1. VÝSLEDEK V KOSTCE
+--------------------------------------------------------------------------------
+- Kód z větve ai-slop (mammography_pipeline.py, 2343 řádků + tests/) je funkční.
+  Byla nutná JEDNA oprava kódu (viz bod 4) a doplnění Docker obalu.
+- Modely běží v Dockeru: na syntetických datech (demo) i na reálných datech
+  data/Rakhaton2026.csv (seedovaný vzorek 100 000 pacientů z 508 527).
+- Celý řetězec inspect -> benchmark (6 rodin modelů) -> evaluate -> predict
+  doběhl s kódem 0. Testy: 144 passed.
+- NEBĚŽELO na všech 1 344 556 řádcích (omezení paměti, viz bod 7).
+- Návrh (design) pipeline nebyl měněn.
+
+2. CO BYLO OVĚŘENO PŘED ZÁSAHEM
+--------------------------------------------------------------------------------
+- Lokální venv (Python 3.13, pinned requirements-lock.txt): self-test OK,
+  143 testů pytest OK.
+- Chybějící soubory: data/data.csv (vývojový vzorek z README) v repozitáři není
+  (záměrně v .gitignore). Na tuto skutečnost byl uživatel upozorněn. Později
+  uživatel doplnil data/Rakhaton2026.csv.
+- Původní README/VERIFICATION uváděly, že reálný 299řádkový vzorek má jen 2 data
+  pozvánek (2020), takže chronologický benchmark na něm nejde; modely byly dosud
+  ověřeny jen na syntetice. To není chyba kódu, ale vlastnost vzorku.
+
+3. DOCKER OBAL (nové soubory, nic z návrhu aplikace nezměněno)
+--------------------------------------------------------------------------------
+- Dockerfile: python:3.13-slim, libgomp1 (OpenMP pro scikit-learn),
+  MPLBACKEND=Agg, OMP_NUM_THREADS=2, instalace z requirements-lock.txt,
+  kopie mammography_pipeline.py, testů a docker/.
+- docker-compose.yml: služby
+    mammography - demo na syntetických datech (docker/run_demo.sh)
+    real        - běh na reálném CSV (docker/run_real.sh), data mount :ro
+    tests       - pytest
+- .dockerignore: do image se nedostane žádné CSV, model, predikce ani artifacts/.
+- docker/make_synthetic_sample.py: generátor SYNTETICKÉHO vzorku (2015-2024).
+- docker/run_demo.sh: self-test -> benchmark -> evaluate -> predict (syntetika).
+- docker/run_real.sh: inspect -> benchmark --save-model -> evaluate (testovací
+  rok) -> predict na reálném CSV; vše parametrizovatelné proměnnými prostředí
+  (OUTCOME_DATA_END, REPORTING_LAG_DAYS, TEST_YEAR, MEMORY_MB, BUDGET_SECONDS,
+  PATIENT_SAMPLE, MODELS, FEATURE_SETS, N_JOBS, BOOTSTRAP).
+- docker/subsample_patients.py: streamovaný seedovaný výběr CELÝCH pacientů
+  (všechny pozvánky vybraných osob zůstanou, historie jsou úplné).
+  Důvod: --sample-cap v pipeline se aplikuje až PO načtení celého souboru do
+  paměti, takže RAM nešetří.
+
+4. OPRAVA KÓDU (jediná) - mammography_pipeline.py, normalize_schema
+--------------------------------------------------------------------------------
+Příznak chyby: běh na reálných datech skončil na kontrole
+  "Contradictory five-year screening count and no-screen-observed flag."
+Příčina: pravidlo vyžadovalo PRIOR_SCREEN_COUNT_5Y == 0 <=> NEVER_SCREENED_BEFORE_
+FLAG == A. V datech je 664 řádků (0,25 % vzorku, všechny roky 2020-2024), kde je
+počet 0, příznak N a MONTHS_SINCE_LAST_SCREEN = 60..71 (632x přesně 60). Poslední
+screening tedy existuje, jen leží na hranici/za pětiletým oknem počtu. Příznak
+"někdy screenovaná" i počet za 5 let jsou tedy vzájemně konzistentní; kód byl
+příliš přísný.
+Oprava (zúžení, ne zrušení kontroly): count==0 s příznakem N je povolen jen když
+MONTHS_SINCE_LAST_SCREEN >= 60. Zachováno beze změny: count>0 s příznakem A
+(nikdy neabsolvovala) je dál chyba; count==0 s příznakem N a měsíci <60 nebo
+chybějícími je dál chyba; kontrola "příznak A + vyplněné měsíce" je beze změny.
+Rozsah: 7 řádků v mammography_pipeline.py, 7 řádků v tests/test_contracts.py
+(test_zero_count_with_screen_outside_window_is_consistent).
+Poznámka: kontrola byla ověřena na vzorku 20 % pacientů; na zbylých 80 % nebyla
+spuštěna.
+
+5. VÝSLEDKY BĚHU NA REÁLNÝCH DATECH
+--------------------------------------------------------------------------------
+Příkaz:
+  PATIENT_SAMPLE=100000 MEMORY_MB=3000 BUDGET_SECONDS=600 \
+    docker compose run --rm --build real
+Data: 1 344 556 pozvánek, 508 527 osob (shoduje se se slovníkem), pozvánky od
+14. 1. 2020 do 6. 12. 2024, štítky jen A/N bez prázdných hodnot. Soubor je
+seřazen podle INVITATION_ID, ne podle data.
+Vzorek: 100 000 osob, 263 654 pozvánek. Testovací rok 2024: 50 219 pozvánek.
+Benchmark: dummy, logistic, decision_tree, random_forest, extra_trees,
+hist_gradient_boosting, mlp x sady příznaků raw_snapshot a snapshot_engineered,
+všechny trialy "success".
+Vítěz validace: hist_gradient_boosting / snapshot_engineered (macro log loss 0,297).
+
+Finální test (rok 2024, kalibrace none, koherentní p90>=p180>=p365):
+  horizont   prevalence     log loss   Brier    ROC AUC   log loss baseline
+  90 dní     0,927          0,2115     0,0591   0,820     0,2601
+  180 dní    0,875          0,2968     0,0888   0,821     0,3770
+  365 dní    0,808          0,3724     0,1153   0,824     0,4897
+  macro log loss 0,2936. Kvartální bloky 2024: 0,288 - 0,304.
+Predikce: 50 219 pozvánek, 3 koherentní pravděpodobnosti + složky a doplňky.
+Výstupy: artifacts/real_run/ (v .gitignore; nic se neodesílá mimo stroj).
+
+6. TESTY
+--------------------------------------------------------------------------------
+- python -m pytest -q  ->  144 passed (143 původních + 1 nový).
+
+7. OMEZENÍ A OTEVŘENÉ BODY (důležité)
+--------------------------------------------------------------------------------
+a) OUTCOME_DATA_END = 2026-01-02 je PRACOVNÍ PŘEDPOKLAD, nikoli ověřená hodnota.
+   Datový slovník (29. 9. 2026) ho neuvádí; nepojištění do 31. 12. 2025 není
+   důkaz doby sledování výsledků. Všechny výstupy to uvádějí v provenance.
+   Pokud je skutečný konec sledování dřívější, štítky pozvánek z konce roku 2024
+   mohou být zkreslené (neevidovaná účast by se jevila jako nenávštěva).
+   Je potřeba ověřit u správce dat. Nastavuje se přes OUTCOME_DATA_END.
+   Analogicky REPORTING_LAG_DAYS=0 je předpoklad.
+b) Model byl natrénován na ~20 % pacientů, ne na celé kohortě. Plná kohorta
+   v tomto prostředí neběžela: Docker Desktop má 3,8 GiB RAM / 8 CPU, hostitel
+   8 GiB RAM, disk je zaplněn z 99 % (3,7 GiB volných). Odhad: surová data
+   ~1,8 GB (guard --memory-mb by vyžadoval >= ~3,4 GB), vrchol při zpracování
+   výrazně vyšší. Nezkoušeno, abychom nezahltili stroj.
+   Další krok: PATIENT_SAMPLE=200000 případně po navýšení RAM v Docker Desktopu.
+c) Testovací rok 2024 je jediná proveditelná volba (dřívější rok by nenechal
+   dost trénovacích dat před první validační periodou; --folds výchozí 2).
+d) Výkonnost (AUC ~0,82) je odhad na vzorku při neověřeném konci sledování, ne
+   tvrzení o výkonu na populaci. Neověřeno: backfill prediktorů (viz
+   --assume-t0-snapshots), kalibrace (calibration=none, nic nebylo laděno).
+e) README.md a VERIFICATION.md jsou zastaralé: tvrdí, že plné CSV nebylo nikdy
+   otevřeno a že neexistuje žádná empirická metrika. Nebyly upravovány.
+f) Průběh: část sezení byla blokována výpadkem klasifikátoru auto módu (model
+   claude-sonnet-5-5 nedostupný), proto byly Bash příkazy odloženy; na výsledky
+   to nemá vliv.
+g) Nic nebylo commitnuto ani odesláno. Soubory se změnami čekají v pracovním
+   stromu: M mammography_pipeline.py, M tests/test_contracts.py a nové
+   .dockerignore, Dockerfile, docker-compose.yml, docker/ (4 soubory).
+   Složka task/ je v gitu dosud nesledovaná (untracked).
+
+8. JAK TO SPUSTIT
+--------------------------------------------------------------------------------
+  docker compose up --build                  # demo na syntetice (6 rodin modelů)
+  docker compose run --rm tests              # 144 testů
+  PATIENT_SAMPLE=100000 MEMORY_MB=3000 docker compose run --rm --build real
+  # volitelně: OUTCOME_DATA_END=<ověřené datum> REPORTING_LAG_DAYS=<dny>
+  #            BUDGET_SECONDS=1200 PRESET=standard PATIENT_SAMPLE=200000
+Lokálně (bez Dockeru):
+  .venv/bin/python mammography_pipeline.py self-test
+  .venv/bin/python -m pytest -q
+
+9. ZMĚNY V SOUBORECH
+--------------------------------------------------------------------------------
+Upraveno:
+  mammography_pipeline.py     (+6/-1, kontrola počtu screeningů vs příznak)
+  tests/test_contracts.py     (+7, nový test)
+Nově:
+  Dockerfile, docker-compose.yml, .dockerignore
+  docker/make_synthetic_sample.py, docker/run_demo.sh,
+  docker/run_real.sh, docker/subsample_patients.py
+  task/repair_summary.txt     (tento soubor)
+Beze změny: celý návrh pipeline, modely, příznaky, časová validace, CLI.

@@ -1,0 +1,51 @@
+# Build and run the mammography pipeline in a container.
+#
+#   docker compose up --build            # run the end-to-end model demo
+#   docker compose run --rm tests        # run the offline test suite
+#
+# The real patient sample is never committed or baked in. Drop a local
+# data/data.csv to have it schema-audited (read-only mount); the model run
+# always uses the clearly-labelled synthetic sample.
+services:
+  mammography:
+    build: .
+    image: mammography-pipeline:latest
+    environment:
+      OMP_NUM_THREADS: "2"
+      MPLBACKEND: "Agg"
+      # Override to tune the demo without rebuilding:
+      BUDGET_SECONDS: "120"
+    volumes:
+      - ./artifacts:/app/artifacts
+      - ./data:/app/data:ro
+    command: ["bash", "docker/run_demo.sh"]
+
+  # Real-data run on the local data/Rakhaton2026.csv (read-only mount, outputs to ./artifacts).
+  #   docker compose run --rm real                          # whole file
+  #   PATIENT_SAMPLE=100000 docker compose run --rm real    # streamed whole-patient subsample
+  # OUTCOME_DATA_END is a labelled working assumption until the data owner verifies it.
+  real:
+    build: .
+    image: mammography-pipeline:latest
+    environment:
+      OMP_NUM_THREADS: "2"
+      MPLBACKEND: "Agg"
+      OUTCOME_DATA_END: "${OUTCOME_DATA_END:-2026-01-02}"
+      MEMORY_MB: "${MEMORY_MB:-14000}"
+      BUDGET_SECONDS: "${BUDGET_SECONDS:-600}"
+      PATIENT_SAMPLE: "${PATIENT_SAMPLE:-}"
+      MODELS: "${MODELS:-logistic,decision_tree,random_forest,extra_trees,hist_gradient_boosting,mlp}"
+      FEATURE_SETS: "${FEATURE_SETS:-raw_snapshot,snapshot_engineered}"
+    volumes:
+      - ./artifacts:/app/artifacts
+      - ./data:/app/data:ro
+    command: ["bash", "docker/run_real.sh"]
+
+  # Offline synthetic test suite (no network, no real data).
+  tests:
+    build: .
+    image: mammography-pipeline:latest
+    environment:
+      OMP_NUM_THREADS: "2"
+      MPLBACKEND: "Agg"
+    command: ["python", "-m", "pytest", "-q"]
