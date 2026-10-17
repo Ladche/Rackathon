@@ -1,0 +1,20 @@
+{
+  "rows_after_valid_date_filter": 1344556,
+  "columns_in_source": 25,
+  "unique_people": 508527,
+  "unique_invitation_ids": 1344556,
+  "date_min": "2020-01-14T00:00:00",
+  "date_max": "2024-12-06T00:00:00",
+  "rows_with_missing_patient_id": 0,
+  "people_with_multiple_rows": 317557,
+  "share_rows_belonging_to_repeat_people": 0.8579679834830234,
+  "max_rows_per_person": 5,
+  "rows_per_person_distribution": {
+    "1": 190970,
+    "2": 95778,
+    "3": 54097,
+    "4": 38671,
+    "5": 129011
+  },
+  "duplicate_invitation_id_rows_after_first": 0
+}
