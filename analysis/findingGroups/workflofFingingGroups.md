@@ -126,9 +126,12 @@ klinická potřeba, vysoká neúčast a ovlivnitelnost komunikací.
 
 ## 8. Intervence a jejich ověření — 04_interpret.py
 
-Pro každý skutečně nalezený profil vznikla karta s jedno- či dvouslovným
+Pro každý skutečně nalezený profil vznikla karta s popisným
 názvem, přesným pravidlem, velikostí a charakteristikami, interpretací,
 řešením, možnostmi kanálu, konkrétním kontrastem A/B a chybějícími údaji.
+Na následné upřesnění požadavku byly krátké názvy rozšířeny tak, aby
+vystihovaly oba rozměry profilu, a každá karta dostala úvodní slovní
+charakteristiku. Pravidla, číselné výsledky a návrhy intervencí se nezměnily.
 
 Navržené kanály zahrnují papírovou poštu, telefonní navigaci, ordinaci,
 SMS, e-mail, zabezpečený portál, aplikaci a push. Jde o nabídky k ověření,
@@ -169,7 +172,8 @@ Výsledný příkaz pro celou regresi:
 .venv/bin/python -m pytest -q tests analysis/findingGroups/code/test_finding_groups.py
 ```
 
-Celá regrese prošla: **162 testů**, z toho 144 původních a 18 nových.
+Po doplnění popisů celá regrese zahrnuje **165 testů**, z toho 144 původních
+a 21 analytických; tři poslední kontrolují popisné názvy a charakteristiky.
 Pandas na uměle vytvořených prázdných číselných
 řetězcích hlásí FutureWarning z existujícího normalizátoru; nemění výsledek
 a nesouvisí s trénováním. Nejsou přidány široké výjimky ani potlačování chyb.

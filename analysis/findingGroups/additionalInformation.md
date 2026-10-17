@@ -58,10 +58,12 @@ z toho dva pod hranicí. Samotné zvýšení minima tedy neřeší všechny mal�
 profily a nevytváří důkaz optimální segmentace.
 
 Jde o **exploračně vytvořenou provozní taxonomii**, ne objev dvaceti
-vrozených, neměnných nebo nezávisle validovaných skupin. Názvy jsou krátké
-orientační štítky; „opakované“ odkazuje na pozorovaná nulová okna,
-„jednorázové“ na jediné známé nulové okno a „nezařazené“ na chybějící
-uplynulou historii navzdory opakované pozvánce. Nejsou hodnotícím označením žen.
+vrozených, neměnných nebo nezávisle validovaných skupin. Názvy popisují
+jak kontakt s péčí a prevenci, tak dostupnou historii účasti; nejsou omezené
+počtem slov. Každou kartu uvádí samostatný slovní popis profilu.
+„Opakovaně bez zaznamenané účasti“ odkazuje na pozorovaná nulová okna,
+nikoli na prokázané odmítání. „Bez vyhodnotitelné historie“ znamená chybějící
+uplynulou historii navzdory opakované pozvánce. Nejde o hodnotící označení žen.
 
 ## Jednotka analýzy a výběrové zkreslení
 

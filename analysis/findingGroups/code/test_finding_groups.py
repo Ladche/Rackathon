@@ -20,6 +20,7 @@ from common import (
 audit = importlib.import_module("01_audit")
 features = importlib.import_module("02_features")
 groups = importlib.import_module("03_groups")
+interpret = importlib.import_module("04_interpret")
 
 
 def raw_rows(dates=("2020-01-01", "2021-01-01", "2022-01-01")):
@@ -211,3 +212,31 @@ def test_current_and_future_labels_cannot_change_earlier_features(tmp_path):
         after = pd.read_sql_query("SELECT * FROM features ORDER BY invitation_date", con)
     history_columns = [c for c in before if c.startswith(("prior_known_", "prior_yes_", "prior_early_", "prior_late_"))]
     pd.testing.assert_frame_equal(before[history_columns], after[history_columns])
+
+
+def test_profile_names_and_descriptions_cover_all_rule_combinations():
+    group_ids = [f"{history}__{care}" for history in interpret.HISTORY_TEXT for care in interpret.CARE_TEXT]
+    names = [interpret.group_name(group_id) for group_id in group_ids]
+    descriptions = [interpret.group_description(group_id) for group_id in group_ids]
+    assert len(set(names)) == len(group_ids)
+    assert len(set(descriptions)) == len(group_ids)
+    for group_id, name, description in zip(group_ids, names, descriptions):
+        history, care = group_id.split("__")
+        assert interpret.HISTORY_NAME[history] in name
+        assert interpret.CARE_NAME[care] in name
+        assert interpret.HISTORY_DESCRIPTION[history] in description
+        assert interpret.CARE_DESCRIPTION[care] in description
+
+
+def test_unknown_history_description_does_not_imply_nonresponse():
+    description = interpret.group_description("unobserved_repeat__medical_prevention")
+    assert "nevyhodnotitelnou historii" in description
+    assert "nikoli o prokázané opakované nereagování" in description
+
+
+def test_recent_screen_description_preserves_safety_priority():
+    assert "ověřit" in interpret.group_name("recent_screen")
+    description = interpret.group_description("recent_screen")
+    assert "24 měsících" in description
+    assert "přednost" in description
+    assert "nemusí znamenat zanedbání prevence" in description

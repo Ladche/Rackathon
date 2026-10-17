@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 import json
 from pathlib import Path
 import platform
+from textwrap import fill
 import time
 
 import matplotlib
@@ -28,14 +29,78 @@ CARE_TEXT = {
     "medical_prevention": "alespoň jedna preventivní prohlídka u praktika nebo gynekologa za 24 měsíců",
     "no_prevention": "nula ve všech čtyřech doménách prevence; nízký a vyšší kontakt byly sloučeny kvůli malé četnosti",
 }
-PREFIX = {
-    "repeated_zero": "Opakované", "single_zero": "Jednorázové",
-    "unobserved_first": "První", "unobserved_repeat": "Nezařazené", "past_response": "Navracející",
+HISTORY_NAME = {
+    "repeated_zero": "opakovaně bez zaznamenané účasti",
+    "single_zero": "jedno dřívější roční okno bez zaznamenané účasti",
+    "unobserved_first": "první pozvánka podle zdroje",
+    "unobserved_repeat": "opakovaná pozvánka bez vyhodnotitelné historie",
+    "past_response": "dřívější zaznamenaná účast",
 }
-SUFFIX = {
-    "low_contact": "nízkokontaktní", "care_no_prevention": "nepreventivní",
-    "other_prevention": "selektivní", "medical_prevention": "preventistky",
-    "no_prevention": "nepreventivní",
+CARE_NAME = {
+    "low_contact": "Nízký kontakt s péčí bez sledované prevence",
+    "care_no_prevention": "Kontakt s péčí bez sledované prevence",
+    "other_prevention": "Zubní prevence či jiný screening",
+    "medical_prevention": "Prevence u praktika či gynekologa",
+    "no_prevention": "Bez sledované prevence při různém kontaktu s péčí",
+}
+HISTORY_DESCRIPTION = {
+    "repeated_zero": (
+        "V dostupné historii mají alespoň dvě starší pozvánky, po nichž v již uplynulých ročních "
+        "oknech není zaznamenána účast na mamografii. Od ostatních je odlišuje opakování stejného "
+        "vzorce, ne pouze jedna pozvánka bez zaznamenané účasti."
+    ),
+    "single_zero": (
+        "Mají právě jednu dřívější pozvánku s již uplynulým ročním oknem a známým výsledkem, "
+        "ve kterém není zaznamenána účast na mamografii. Dostupná historie je proto kratší "
+        "než u opakovaně nulových profilů a nedokládá dlouhodobé nereagování."
+    ),
+    "unobserved_first": (
+        "Zdroj je označuje jako poprvé pozvané a v extraktu nemají starší známý výsledek "
+        "s již uplynulým ročním oknem. Jejich reakci na předchozí pozvánky tedy nelze posoudit; "
+        "první pozvánka podle zdroje neznamená první celoživotní zkušenost s mamografií."
+    ),
+    "unobserved_repeat": (
+        "Podle zdroje již byly zvány, ale v dostupných datech nemají starší známý výsledek "
+        "s již uplynulým ročním oknem. Dřívější pozvánky mohou být mimo extrakt nebo jejich "
+        "hodnoticí okno ještě neskončilo. Jde o nevyhodnotitelnou historii, nikoli o prokázané "
+        "opakované nereagování."
+    ),
+    "past_response": (
+        "Po alespoň jedné starší pozvánce mají v časově uzavřeném ročním okně zaznamenanou "
+        "účast na mamografii. Od profilů bez historické účasti je odlišuje tato doložená "
+        "zkušenost; sama ale nezaručuje účast po nové pozvánce ani reakci na každý dopis."
+    ),
+}
+CARE_DESCRIPTION = {
+    "low_contact": (
+        "Současně mají za poslední rok nejvýše dva kontakty typu poskytovatel/den a žádný "
+        "záznam ve čtyřech sledovaných oblastech prevence. Profil tak spojuje danou historii "
+        "pozvánek s minimálním kontaktem s péčí, nikoli jen s chybějící mamografií."
+    ),
+    "care_no_prevention": (
+        "Se zdravotnictvím přitom v posledním roce mají více než dva kontakty typu "
+        "poskytovatel/den, ale ve čtyřech sledovaných oblastech nemají zaznamenanou prevenci. "
+        "Rozlišujícím znakem je využívání péče bez doložené preventivní aktivity, ne úplná "
+        "absence kontaktu se zdravotnictvím."
+    ),
+    "other_prevention": (
+        "Mají doloženou zubní prevenci za poslední dva roky nebo jiný screening za poslední "
+        "tři roky, nikoli však preventivní prohlídku u praktika či gynekologa za poslední "
+        "dva roky. Nejsou tedy bez veškeré prevence: zaznamenaná aktivita se soustředí "
+        "do jiných sledovaných oblastí."
+    ),
+    "medical_prevention": (
+        "Za poslední dva roky mají alespoň jednu preventivní prohlídku u praktika nebo "
+        "gynekologa. Jsou tak alespoň částečně zapojené do lékařské prevence; tento údaj "
+        "ale neznamená pravidelné využívání veškeré prevence ani automatickou účast "
+        "na mamografii."
+    ),
+    "no_prevention": (
+        "Ve čtyřech sledovaných oblastech nyní nemají zaznamenanou prevenci. Jejich míra "
+        "kontaktu se zdravotnictvím se liší: nízký a vyšší kontakt jsou zde spojené kvůli "
+        "malým četnostem. Společným znakem je tedy absence prevence ve sledovaných "
+        "oblastech, nikoli jednotná míra využívání péče."
+    ),
 }
 CARE_INTERVENTION = {
     "low_contact": (
@@ -112,9 +177,26 @@ def number(value) -> str:
 
 def group_name(group_id: str) -> str:
     if group_id == "recent_screen":
-        return "Nedávný záznam"
+        return "Nedávno zaznamenaná mamografie — ověřit vhodný termín dalšího vyšetření"
     history, care = group_id.split("__")
-    return f"{PREFIX[history]} {SUFFIX[care]}"
+    return f"{CARE_NAME[care]} — {HISTORY_NAME[history]}"
+
+
+def group_description(group_id: str) -> str:
+    if group_id == "recent_screen":
+        return (
+            "Při odeslání pozvánky mají uvedený mamografický screening v posledních "
+            "24 měsících. Tato informace má přednost před historií reakcí a ostatní "
+            "prevencí, takže skupina může zahrnovat ženy s různým využíváním péče. "
+            "Nízká účast na dalším vyšetření nemusí znamenat zanedbání prevence: nejprve "
+            "je nutné ověřit přesné datum, časové zaokrouhlení záznamu a klinicky vhodný "
+            "termín další mamografie."
+        )
+    history, care = group_id.split("__")
+    return (
+        f"{HISTORY_DESCRIPTION[history]} {CARE_DESCRIPTION[care]} "
+        "Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče."
+    )
 
 
 def group_card(row, chars, standardized, annual, power, population):
@@ -122,6 +204,7 @@ def group_card(row, chars, standardized, annual, power, population):
     title = group_name(gid)
     lines = [
         f"## {title}",
+        f"- **Popis profilu:** {group_description(gid)}",
         f"- **Identifikátor:** `{gid}`.",
         f"- **Základ:** {integer(row['n'])} žen / pozvánek v roce {population['index_year']} "
         f"({percent(row['share'])} roční kohorty); každá žena právě jednou.",
@@ -232,8 +315,8 @@ def group_card(row, chars, standardized, annual, power, population):
 
 def plots(results, groups):
     table = groups.sort_values("rate_180d").copy()
-    labels = [group_name(g) for g in table["group_id"]]
-    fig, axis = plt.subplots(figsize=(11, 10))
+    labels = [fill(group_name(g), width=52) for g in table["group_id"]]
+    fig, axis = plt.subplots(figsize=(15, 17))
     axis.barh(labels, 100 * table["rate_180d"], color="#287c8e")
     axis.errorbar(100 * table["rate_180d"], range(len(table)),
                   xerr=[100 * (table["rate_180d"] - table["ci_low_180d"]),
@@ -244,7 +327,7 @@ def plots(results, groups):
     fig.tight_layout()
     fig.savefig(results / "groups_180d.png", dpi=150)
     plt.close(fig)
-    fig, axis = plt.subplots(figsize=(11, 10))
+    fig, axis = plt.subplots(figsize=(15, 17))
     axis.barh(labels, table["n"], color="#735a98")
     axis.set_xlabel("Ženy v roční kohortě 2024")
     axis.set_title("Velikost skupin; nejde o počet žen ovlivnitelných intervencí")

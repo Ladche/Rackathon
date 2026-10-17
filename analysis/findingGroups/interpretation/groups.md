@@ -1,4 +1,5 @@
-## Opakované preventistky
+## Prevence u praktika či gynekologa — opakovaně bez zaznamenané účasti
+- **Popis profilu:** V dostupné historii mají alespoň dvě starší pozvánky, po nichž v již uplynulých ročních oknech není zaznamenána účast na mamografii. Od ostatních je odlišuje opakování stejného vzorce, ne pouze jedna pozvánka bez zaznamenané účasti. Za poslední dva roky mají alespoň jednu preventivní prohlídku u praktika nebo gynekologa. Jsou tak alespoň částečně zapojené do lékařské prevence; tento údaj ale neznamená pravidelné využívání veškeré prevence ani automatickou účast na mamografii. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `repeated_zero__medical_prevention`.
 - **Základ:** 78 213 žen / pozvánek v roce 2024 (30,5 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** alespoň dvě dřívější pozvánky s uplynulým oknem 365 + 30 dní, v žádném z těchto známých oken není zaznamenána účast; současně alespoň jedna preventivní prohlídka u praktika nebo gynekologa za 24 měsíců; není uveden screening v posledních 24 měsících.
@@ -17,7 +18,8 @@
 - **Co doplnit:** kontakt na ordinaci, digitální preference, důvod prodlení, již rezervovaný termín, čekací doba, přesná poslední mamografie; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 865 žen na rameno (1 730 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Opakované selektivní
+## Zubní prevence či jiný screening — opakovaně bez zaznamenané účasti
+- **Popis profilu:** V dostupné historii mají alespoň dvě starší pozvánky, po nichž v již uplynulých ročních oknech není zaznamenána účast na mamografii. Od ostatních je odlišuje opakování stejného vzorce, ne pouze jedna pozvánka bez zaznamenané účasti. Mají doloženou zubní prevenci za poslední dva roky nebo jiný screening za poslední tři roky, nikoli však preventivní prohlídku u praktika či gynekologa za poslední dva roky. Nejsou tedy bez veškeré prevence: zaznamenaná aktivita se soustředí do jiných sledovaných oblastí. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `repeated_zero__other_prevention`.
 - **Základ:** 31 057 žen / pozvánek v roce 2024 (12,1 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** alespoň dvě dřívější pozvánky s uplynulým oknem 365 + 30 dní, v žádném z těchto známých oken není zaznamenána účast; současně žádná prevence u praktika ani gynekologa za 24 měsíců, ale alespoň jedna stomatologická prevence za 24 měsíců nebo jiný screening za 36 měsíců; není uveden screening v posledních 24 měsících.
@@ -36,7 +38,8 @@
 - **Co doplnit:** který preventivní program žena využila, zkušenost s mamografií, obavy, pracovní časy, preferované pracoviště; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 606 žen na rameno (1 212 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Opakované nepreventivní
+## Kontakt s péčí bez sledované prevence — opakovaně bez zaznamenané účasti
+- **Popis profilu:** V dostupné historii mají alespoň dvě starší pozvánky, po nichž v již uplynulých ročních oknech není zaznamenána účast na mamografii. Od ostatních je odlišuje opakování stejného vzorce, ne pouze jedna pozvánka bez zaznamenané účasti. Se zdravotnictvím přitom v posledním roce mají více než dva kontakty typu poskytovatel/den, ale ve čtyřech sledovaných oblastech nemají zaznamenanou prevenci. Rozlišujícím znakem je využívání péče bez doložené preventivní aktivity, ne úplná absence kontaktu se zdravotnictvím. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `repeated_zero__care_no_prevention`.
 - **Základ:** 20 861 žen / pozvánek v roce 2024 (8,1 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** alespoň dvě dřívější pozvánky s uplynulým oknem 365 + 30 dní, v žádném z těchto známých oken není zaznamenána účast; současně nula ve všech čtyřech doménách prevence, ale více než dva kontakty typu poskytovatel/den za 12 měsíců; není uveden screening v posledních 24 měsících.
@@ -55,7 +58,8 @@
 - **Co doplnit:** skutečná navštívená ordinace, termíny kontaktů, klinická vhodnost, konkurenční zdravotní potřeby, souhlas ordinace; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 518 žen na rameno (1 036 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Opakované nízkokontaktní
+## Nízký kontakt s péčí bez sledované prevence — opakovaně bez zaznamenané účasti
+- **Popis profilu:** V dostupné historii mají alespoň dvě starší pozvánky, po nichž v již uplynulých ročních oknech není zaznamenána účast na mamografii. Od ostatních je odlišuje opakování stejného vzorce, ne pouze jedna pozvánka bez zaznamenané účasti. Současně mají za poslední rok nejvýše dva kontakty typu poskytovatel/den a žádný záznam ve čtyřech sledovaných oblastech prevence. Profil tak spojuje danou historii pozvánek s minimálním kontaktem s péčí, nikoli jen s chybějící mamografií. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `repeated_zero__low_contact`.
 - **Základ:** 16 314 žen / pozvánek v roce 2024 (6,4 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** alespoň dvě dřívější pozvánky s uplynulým oknem 365 + 30 dní, v žádném z těchto známých oken není zaznamenána účast; současně nula ve všech čtyřech doménách prevence a nejvýše dva kontakty typu poskytovatel/den za 12 měsíců; není uveden screening v posledních 24 měsících.
@@ -74,7 +78,8 @@
 - **Co doplnit:** dosažitelnost, jazyk, zdravotní gramotnost, preference kanálu, důvody absence kontaktu, potřeba doprovodu; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 400 žen na rameno (800 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Nezařazené preventistky
+## Prevence u praktika či gynekologa — opakovaná pozvánka bez vyhodnotitelné historie
+- **Popis profilu:** Podle zdroje již byly zvány, ale v dostupných datech nemají starší známý výsledek s již uplynulým ročním oknem. Dřívější pozvánky mohou být mimo extrakt nebo jejich hodnoticí okno ještě neskončilo. Jde o nevyhodnotitelnou historii, nikoli o prokázané opakované nereagování. Za poslední dva roky mají alespoň jednu preventivní prohlídku u praktika nebo gynekologa. Jsou tak alespoň částečně zapojené do lékařské prevence; tento údaj ale neznamená pravidelné využívání veškeré prevence ani automatickou účast na mamografii. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `unobserved_repeat__medical_prevention`.
 - **Základ:** 24 033 žen / pozvánek v roce 2024 (9,4 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** žádné dřívější známé okno 365 + 30 dní, ale zdrojový příznak opakované pozvánky; současně alespoň jedna preventivní prohlídka u praktika nebo gynekologa za 24 měsíců; není uveden screening v posledních 24 měsících.
@@ -93,7 +98,8 @@
 - **Co doplnit:** kontakt na ordinaci, digitální preference, důvod prodlení, již rezervovaný termín, čekací doba, přesná poslední mamografie; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 2 304 žen na rameno (4 608 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## První preventistky
+## Prevence u praktika či gynekologa — první pozvánka podle zdroje
+- **Popis profilu:** Zdroj je označuje jako poprvé pozvané a v extraktu nemají starší známý výsledek s již uplynulým ročním oknem. Jejich reakci na předchozí pozvánky tedy nelze posoudit; první pozvánka podle zdroje neznamená první celoživotní zkušenost s mamografií. Za poslední dva roky mají alespoň jednu preventivní prohlídku u praktika nebo gynekologa. Jsou tak alespoň částečně zapojené do lékařské prevence; tento údaj ale neznamená pravidelné využívání veškeré prevence ani automatickou účast na mamografii. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `unobserved_first__medical_prevention`.
 - **Základ:** 32 478 žen / pozvánek v roce 2024 (12,7 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** žádné dřívější známé okno 365 + 30 dní a zdrojový příznak první pozvánky; současně alespoň jedna preventivní prohlídka u praktika nebo gynekologa za 24 měsíců; není uveden screening v posledních 24 měsících.
@@ -112,7 +118,8 @@
 - **Co doplnit:** kontakt na ordinaci, digitální preference, důvod prodlení, již rezervovaný termín, čekací doba, přesná poslední mamografie; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 2 932 žen na rameno (5 864 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Jednorázové preventistky
+## Prevence u praktika či gynekologa — jedno dřívější roční okno bez zaznamenané účasti
+- **Popis profilu:** Mají právě jednu dřívější pozvánku s již uplynulým ročním oknem a známým výsledkem, ve kterém není zaznamenána účast na mamografii. Dostupná historie je proto kratší než u opakovaně nulových profilů a nedokládá dlouhodobé nereagování. Za poslední dva roky mají alespoň jednu preventivní prohlídku u praktika nebo gynekologa. Jsou tak alespoň částečně zapojené do lékařské prevence; tento údaj ale neznamená pravidelné využívání veškeré prevence ani automatickou účast na mamografii. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `single_zero__medical_prevention`.
 - **Základ:** 14 890 žen / pozvánek v roce 2024 (5,8 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** právě jedna dřívější pozvánka se známým výsledkem po uplynutí 365 + 30 dní, bez zaznamenané účasti; současně alespoň jedna preventivní prohlídka u praktika nebo gynekologa za 24 měsíců; není uveden screening v posledních 24 měsících.
@@ -131,7 +138,8 @@
 - **Co doplnit:** kontakt na ordinaci, digitální preference, důvod prodlení, již rezervovaný termín, čekací doba, přesná poslední mamografie; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 1 710 žen na rameno (3 420 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Nedávný záznam
+## Nedávno zaznamenaná mamografie — ověřit vhodný termín dalšího vyšetření
+- **Popis profilu:** Při odeslání pozvánky mají uvedený mamografický screening v posledních 24 měsících. Tato informace má přednost před historií reakcí a ostatní prevencí, takže skupina může zahrnovat ženy s různým využíváním péče. Nízká účast na dalším vyšetření nemusí znamenat zanedbání prevence: nejprve je nutné ověřit přesné datum, časové zaokrouhlení záznamu a klinicky vhodný termín další mamografie.
 - **Identifikátor:** `recent_screen`.
 - **Základ:** 7 600 žen / pozvánek v roce 2024 (3,0 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** údaj o posledním screeningu je kratší než 24 měsíců; přednost před všemi ostatními pravidly. Jde o bezpečnostní filtr k ověření, nikoli automatickou klinickou výjimku nebo diagnózu.
@@ -147,7 +155,8 @@
 - **A/B test:** pouze po ověření vhodnosti a nejbližšího skutečně splatného screeningu randomizovat ženu 1:1. A = běžná správně načasovaná pozvánka; B = stejná klinická péče plus potvrzený osobní plán a připomenutí před doporučeným termínem. Primární výsledek je účast do 90 dní po individuálním doporučeném termínu; sekundárně neindikované duplicity, porozumění a odmítnutí. Obě ramena musí dodržet klinický interval.
 - **Proveditelnost a potřebná data:** přesné datum a typ výkonu, klinické doporučení dalšího termínu, dostupnost kontaktu a preference. Historická 180denní míra zde není vhodný baseline pro tento test; velikost testu nelze z dodaných proměnných poctivě spočítat.
 
-## Nezařazené selektivní
+## Zubní prevence či jiný screening — opakovaná pozvánka bez vyhodnotitelné historie
+- **Popis profilu:** Podle zdroje již byly zvány, ale v dostupných datech nemají starší známý výsledek s již uplynulým ročním oknem. Dřívější pozvánky mohou být mimo extrakt nebo jejich hodnoticí okno ještě neskončilo. Jde o nevyhodnotitelnou historii, nikoli o prokázané opakované nereagování. Mají doloženou zubní prevenci za poslední dva roky nebo jiný screening za poslední tři roky, nikoli však preventivní prohlídku u praktika či gynekologa za poslední dva roky. Nejsou tedy bez veškeré prevence: zaznamenaná aktivita se soustředí do jiných sledovaných oblastí. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `unobserved_repeat__other_prevention`.
 - **Základ:** 5 436 žen / pozvánek v roce 2024 (2,1 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** žádné dřívější známé okno 365 + 30 dní, ale zdrojový příznak opakované pozvánky; současně žádná prevence u praktika ani gynekologa za 24 měsíců, ale alespoň jedna stomatologická prevence za 24 měsíců nebo jiný screening za 36 měsíců; není uveden screening v posledních 24 měsících.
@@ -166,7 +175,8 @@
 - **Co doplnit:** který preventivní program žena využila, zkušenost s mamografií, obavy, pracovní časy, preferované pracoviště; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 1 568 žen na rameno (3 136 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Navracející preventistky
+## Prevence u praktika či gynekologa — dřívější zaznamenaná účast
+- **Popis profilu:** Po alespoň jedné starší pozvánce mají v časově uzavřeném ročním okně zaznamenanou účast na mamografii. Od profilů bez historické účasti je odlišuje tato doložená zkušenost; sama ale nezaručuje účast po nové pozvánce ani reakci na každý dopis. Za poslední dva roky mají alespoň jednu preventivní prohlídku u praktika nebo gynekologa. Jsou tak alespoň částečně zapojené do lékařské prevence; tento údaj ale neznamená pravidelné využívání veškeré prevence ani automatickou účast na mamografii. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `past_response__medical_prevention`.
 - **Základ:** 6 592 žen / pozvánek v roce 2024 (2,6 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** alespoň jedna zaznamenaná účast po dřívější pozvánce s uplynulým oknem 365 + 30 dní; současně alespoň jedna preventivní prohlídka u praktika nebo gynekologa za 24 měsíců; není uveden screening v posledních 24 měsících.
@@ -185,7 +195,8 @@
 - **Co doplnit:** kontakt na ordinaci, digitální preference, důvod prodlení, již rezervovaný termín, čekací doba, přesná poslední mamografie; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 2 404 žen na rameno (4 808 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Jednorázové selektivní
+## Zubní prevence či jiný screening — jedno dřívější roční okno bez zaznamenané účasti
+- **Popis profilu:** Mají právě jednu dřívější pozvánku s již uplynulým ročním oknem a známým výsledkem, ve kterém není zaznamenána účast na mamografii. Dostupná historie je proto kratší než u opakovaně nulových profilů a nedokládá dlouhodobé nereagování. Mají doloženou zubní prevenci za poslední dva roky nebo jiný screening za poslední tři roky, nikoli však preventivní prohlídku u praktika či gynekologa za poslední dva roky. Nejsou tedy bez veškeré prevence: zaznamenaná aktivita se soustředí do jiných sledovaných oblastí. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `single_zero__other_prevention`.
 - **Základ:** 4 367 žen / pozvánek v roce 2024 (1,7 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** právě jedna dřívější pozvánka se známým výsledkem po uplynutí 365 + 30 dní, bez zaznamenané účasti; současně žádná prevence u praktika ani gynekologa za 24 měsíců, ale alespoň jedna stomatologická prevence za 24 měsíců nebo jiný screening za 36 měsíců; není uveden screening v posledních 24 měsících.
@@ -204,7 +215,8 @@
 - **Co doplnit:** který preventivní program žena využila, zkušenost s mamografií, obavy, pracovní časy, preferované pracoviště; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 1 216 žen na rameno (2 432 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## První selektivní
+## Zubní prevence či jiný screening — první pozvánka podle zdroje
+- **Popis profilu:** Zdroj je označuje jako poprvé pozvané a v extraktu nemají starší známý výsledek s již uplynulým ročním oknem. Jejich reakci na předchozí pozvánky tedy nelze posoudit; první pozvánka podle zdroje neznamená první celoživotní zkušenost s mamografií. Mají doloženou zubní prevenci za poslední dva roky nebo jiný screening za poslední tři roky, nikoli však preventivní prohlídku u praktika či gynekologa za poslední dva roky. Nejsou tedy bez veškeré prevence: zaznamenaná aktivita se soustředí do jiných sledovaných oblastí. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `unobserved_first__other_prevention`.
 - **Základ:** 2 816 žen / pozvánek v roce 2024 (1,1 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** žádné dřívější známé okno 365 + 30 dní a zdrojový příznak první pozvánky; současně žádná prevence u praktika ani gynekologa za 24 měsíců, ale alespoň jedna stomatologická prevence za 24 měsíců nebo jiný screening za 36 měsíců; není uveden screening v posledních 24 měsících.
@@ -223,7 +235,8 @@
 - **Co doplnit:** který preventivní program žena využila, zkušenost s mamografií, obavy, pracovní časy, preferované pracoviště; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 1 860 žen na rameno (3 720 celkem); to se nevejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Nezařazené nepreventivní
+## Kontakt s péčí bez sledované prevence — opakovaná pozvánka bez vyhodnotitelné historie
+- **Popis profilu:** Podle zdroje již byly zvány, ale v dostupných datech nemají starší známý výsledek s již uplynulým ročním oknem. Dřívější pozvánky mohou být mimo extrakt nebo jejich hodnoticí okno ještě neskončilo. Jde o nevyhodnotitelnou historii, nikoli o prokázané opakované nereagování. Se zdravotnictvím přitom v posledním roce mají více než dva kontakty typu poskytovatel/den, ale ve čtyřech sledovaných oblastech nemají zaznamenanou prevenci. Rozlišujícím znakem je využívání péče bez doložené preventivní aktivity, ne úplná absence kontaktu se zdravotnictvím. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `unobserved_repeat__care_no_prevention`.
 - **Základ:** 2 292 žen / pozvánek v roce 2024 (0,9 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** žádné dřívější známé okno 365 + 30 dní, ale zdrojový příznak opakované pozvánky; současně nula ve všech čtyřech doménách prevence, ale více než dva kontakty typu poskytovatel/den za 12 měsíců; není uveden screening v posledních 24 měsících.
@@ -242,7 +255,8 @@
 - **Co doplnit:** skutečná navštívená ordinace, termíny kontaktů, klinická vhodnost, konkurenční zdravotní potřeby, souhlas ordinace; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 983 žen na rameno (1 966 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Jednorázové nepreventivní
+## Kontakt s péčí bez sledované prevence — jedno dřívější roční okno bez zaznamenané účasti
+- **Popis profilu:** Mají právě jednu dřívější pozvánku s již uplynulým ročním oknem a známým výsledkem, ve kterém není zaznamenána účast na mamografii. Dostupná historie je proto kratší než u opakovaně nulových profilů a nedokládá dlouhodobé nereagování. Se zdravotnictvím přitom v posledním roce mají více než dva kontakty typu poskytovatel/den, ale ve čtyřech sledovaných oblastech nemají zaznamenanou prevenci. Rozlišujícím znakem je využívání péče bez doložené preventivní aktivity, ne úplná absence kontaktu se zdravotnictvím. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `single_zero__care_no_prevention`.
 - **Základ:** 2 093 žen / pozvánek v roce 2024 (0,8 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** právě jedna dřívější pozvánka se známým výsledkem po uplynutí 365 + 30 dní, bez zaznamenané účasti; současně nula ve všech čtyřech doménách prevence, ale více než dva kontakty typu poskytovatel/den za 12 měsíců; není uveden screening v posledních 24 měsících.
@@ -261,7 +275,8 @@
 - **Co doplnit:** skutečná navštívená ordinace, termíny kontaktů, klinická vhodnost, konkurenční zdravotní potřeby, souhlas ordinace; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 988 žen na rameno (1 976 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Jednorázové nízkokontaktní
+## Nízký kontakt s péčí bez sledované prevence — jedno dřívější roční okno bez zaznamenané účasti
+- **Popis profilu:** Mají právě jednu dřívější pozvánku s již uplynulým ročním oknem a známým výsledkem, ve kterém není zaznamenána účast na mamografii. Dostupná historie je proto kratší než u opakovaně nulových profilů a nedokládá dlouhodobé nereagování. Současně mají za poslední rok nejvýše dva kontakty typu poskytovatel/den a žádný záznam ve čtyřech sledovaných oblastech prevence. Profil tak spojuje danou historii pozvánek s minimálním kontaktem s péčí, nikoli jen s chybějící mamografií. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `single_zero__low_contact`.
 - **Základ:** 1 461 žen / pozvánek v roce 2024 (0,6 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** právě jedna dřívější pozvánka se známým výsledkem po uplynutí 365 + 30 dní, bez zaznamenané účasti; současně nula ve všech čtyřech doménách prevence a nejvýše dva kontakty typu poskytovatel/den za 12 měsíců; není uveden screening v posledních 24 měsících.
@@ -280,7 +295,8 @@
 - **Co doplnit:** dosažitelnost, jazyk, zdravotní gramotnost, preference kanálu, důvody absence kontaktu, potřeba doprovodu; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 602 žen na rameno (1 204 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Nezařazené nízkokontaktní
+## Nízký kontakt s péčí bez sledované prevence — opakovaná pozvánka bez vyhodnotitelné historie
+- **Popis profilu:** Podle zdroje již byly zvány, ale v dostupných datech nemají starší známý výsledek s již uplynulým ročním oknem. Dřívější pozvánky mohou být mimo extrakt nebo jejich hodnoticí okno ještě neskončilo. Jde o nevyhodnotitelnou historii, nikoli o prokázané opakované nereagování. Současně mají za poslední rok nejvýše dva kontakty typu poskytovatel/den a žádný záznam ve čtyřech sledovaných oblastech prevence. Profil tak spojuje danou historii pozvánek s minimálním kontaktem s péčí, nikoli jen s chybějící mamografií. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `unobserved_repeat__low_contact`.
 - **Základ:** 1 502 žen / pozvánek v roce 2024 (0,6 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** žádné dřívější známé okno 365 + 30 dní, ale zdrojový příznak opakované pozvánky; současně nula ve všech čtyřech doménách prevence a nejvýše dva kontakty typu poskytovatel/den za 12 měsíců; není uveden screening v posledních 24 měsících.
@@ -299,7 +315,8 @@
 - **Co doplnit:** dosažitelnost, jazyk, zdravotní gramotnost, preference kanálu, důvody absence kontaktu, potřeba doprovodu; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 705 žen na rameno (1 410 celkem); to se vejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Navracející selektivní
+## Zubní prevence či jiný screening — dřívější zaznamenaná účast
+- **Popis profilu:** Po alespoň jedné starší pozvánce mají v časově uzavřeném ročním okně zaznamenanou účast na mamografii. Od profilů bez historické účasti je odlišuje tato doložená zkušenost; sama ale nezaručuje účast po nové pozvánce ani reakci na každý dopis. Mají doloženou zubní prevenci za poslední dva roky nebo jiný screening za poslední tři roky, nikoli však preventivní prohlídku u praktika či gynekologa za poslední dva roky. Nejsou tedy bez veškeré prevence: zaznamenaná aktivita se soustředí do jiných sledovaných oblastí. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `past_response__other_prevention`.
 - **Základ:** 1 449 žen / pozvánek v roce 2024 (0,6 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** alespoň jedna zaznamenaná účast po dřívější pozvánce s uplynulým oknem 365 + 30 dní; současně žádná prevence u praktika ani gynekologa za 24 měsíců, ale alespoň jedna stomatologická prevence za 24 měsíců nebo jiný screening za 36 měsíců; není uveden screening v posledních 24 měsících.
@@ -318,7 +335,8 @@
 - **Co doplnit:** který preventivní program žena využila, zkušenost s mamografií, obavy, pracovní časy, preferované pracoviště; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 1 863 žen na rameno (3 726 celkem); to se nevejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## První nízkokontaktní
+## Nízký kontakt s péčí bez sledované prevence — první pozvánka podle zdroje
+- **Popis profilu:** Zdroj je označuje jako poprvé pozvané a v extraktu nemají starší známý výsledek s již uplynulým ročním oknem. Jejich reakci na předchozí pozvánky tedy nelze posoudit; první pozvánka podle zdroje neznamená první celoživotní zkušenost s mamografií. Současně mají za poslední rok nejvýše dva kontakty typu poskytovatel/den a žádný záznam ve čtyřech sledovaných oblastech prevence. Profil tak spojuje danou historii pozvánek s minimálním kontaktem s péčí, nikoli jen s chybějící mamografií. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `unobserved_first__low_contact`.
 - **Základ:** 1 077 žen / pozvánek v roce 2024 (0,4 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** žádné dřívější známé okno 365 + 30 dní a zdrojový příznak první pozvánky; současně nula ve všech čtyřech doménách prevence a nejvýše dva kontakty typu poskytovatel/den za 12 měsíců; není uveden screening v posledních 24 měsících.
@@ -337,7 +355,8 @@
 - **Co doplnit:** dosažitelnost, jazyk, zdravotní gramotnost, preference kanálu, důvody absence kontaktu, potřeba doprovodu; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 728 žen na rameno (1 456 celkem); to se nevejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## První nepreventivní
+## Kontakt s péčí bez sledované prevence — první pozvánka podle zdroje
+- **Popis profilu:** Zdroj je označuje jako poprvé pozvané a v extraktu nemají starší známý výsledek s již uplynulým ročním oknem. Jejich reakci na předchozí pozvánky tedy nelze posoudit; první pozvánka podle zdroje neznamená první celoživotní zkušenost s mamografií. Se zdravotnictvím přitom v posledním roce mají více než dva kontakty typu poskytovatel/den, ale ve čtyřech sledovaných oblastech nemají zaznamenanou prevenci. Rozlišujícím znakem je využívání péče bez doložené preventivní aktivity, ne úplná absence kontaktu se zdravotnictvím. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `unobserved_first__care_no_prevention`.
 - **Základ:** 1 089 žen / pozvánek v roce 2024 (0,4 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** žádné dřívější známé okno 365 + 30 dní a zdrojový příznak první pozvánky; současně nula ve všech čtyřech doménách prevence, ale více než dva kontakty typu poskytovatel/den za 12 měsíců; není uveden screening v posledních 24 měsících.
@@ -356,7 +375,8 @@
 - **Co doplnit:** skutečná navštívená ordinace, termíny kontaktů, klinická vhodnost, konkurenční zdravotní potřeby, souhlas ordinace; dále úplnost výsledků a skutečnou doručitelnost. Hypotézu o bariéře ověřit krátkým dobrovolným dotazem; z této analýzy nelze vyvozovat motivaci.
 - **Orientační velikost A/B:** při hypotetickém navýšení o 5 procentních bodů, síle 80 % a oboustranném α=0.00263 vychází přibližně 1 138 žen na rameno (2 276 celkem); to se nevejde do celé historické velikosti skupiny. Jde o scénář, ne očekávaný efekt ani ověřený nábor; po klinických a kontaktních filtrech počet klesne. Pro skupinové změny v ordinaci je nutné přepočítat design effect.
 
-## Navracející nepreventivní
+## Bez sledované prevence při různém kontaktu s péčí — dřívější zaznamenaná účast
+- **Popis profilu:** Po alespoň jedné starší pozvánce mají v časově uzavřeném ročním okně zaznamenanou účast na mamografii. Od profilů bez historické účasti je odlišuje tato doložená zkušenost; sama ale nezaručuje účast po nové pozvánce ani reakci na každý dopis. Ve čtyřech sledovaných oblastech nyní nemají zaznamenanou prevenci. Jejich míra kontaktu se zdravotnictvím se liší: nízký a vyšší kontakt jsou zde spojené kvůli malým četnostem. Společným znakem je tedy absence prevence ve sledovaných oblastech, nikoli jednotná míra využívání péče. Jde o popis záznamů v datech, nikoli o vysvětlení motivace nebo důkaz odmítání péče.
 - **Identifikátor:** `past_response__no_prevention`.
 - **Základ:** 846 žen / pozvánek v roce 2024 (0,3 % roční kohorty); každá žena právě jednou.
 - **Pravidlo:** alespoň jedna zaznamenaná účast po dřívější pozvánce s uplynulým oknem 365 + 30 dní; současně nula ve všech čtyřech doménách prevence; nízký a vyšší kontakt byly sloučeny kvůli malé četnosti; není uveden screening v posledních 24 měsících.

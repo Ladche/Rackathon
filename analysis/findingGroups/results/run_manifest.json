@@ -1,6 +1,6 @@
 {
   "data_sha256": "a75c5aa9f56d1d1526bf5ded005828c3c7318beee5ec89f477a7e24cda02033a",
-  "final_code_sha256": "e5705894b6b1e3e33260ebe126fc131b437ca8a71b86e73942435e5a14fe5dfa",
+  "final_code_sha256": "c25850a5afb0e247dd7f81dd990f9c8b21b5f59f4b2636b028f751ee1bcf3670",
   "source_invitations": 1344556,
   "source_people": 508527,
   "index_year": 2024,
@@ -11,8 +11,8 @@
   "outcome_cutoff_verified": false,
   "models_fitted": 0,
   "python": "3.13.3",
-  "utc_completed": "2026-10-17T09:43:01.278512+00:00",
-  "report_elapsed_seconds": 0.35,
+  "utc_completed": "2026-10-17T10:00:29.399770+00:00",
+  "report_elapsed_seconds": 0.84,
   "aggregate_files": [
     "age_standardization.csv",
     "all_invitation_groups.csv",
